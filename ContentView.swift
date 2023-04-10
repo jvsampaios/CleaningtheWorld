@@ -46,8 +46,8 @@ struct ContentView: View {
                 Text(displayText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                    .frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.6)
-                    .position(x: proxy.size.width * 0.5, y: proxy.size.height * 0.75)
+                    .frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.65)
+                    .position(x: proxy.size.width * 0.45, y: proxy.size.height * 0.75)
 
             }
         }
