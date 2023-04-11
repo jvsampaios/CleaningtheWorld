@@ -1,7 +1,7 @@
 //
 //  BeachView.swift
 //  Cleaning the World
-// 
+//
 //  Created by user on 11/04/23.
 //
 
