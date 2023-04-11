@@ -9,12 +9,26 @@ import Foundation
 import SwiftUI
 
 struct BeachView: View {
-    @State private var contador = 0
+    @State private var control = 0
 
     @State private var displayText = "We are on the beach! One of my favorite places of all world. But look at that! It's all dirty."
+
+    @State private var positionTrash1 = CGPoint.zero
     
+    @State private var positionTrash2 = CGPoint.zero
+
+    @State private var positionTrash3 = CGPoint.zero
+    
+    @State private var positionTrash4 = CGPoint.zero
+
+    @State private var canPosition = CGPoint.zero
+    
+    @State private var controlCan = 0
+
+
     var body: some View {
         GeometryReader { proxy in
+            
             ZStack {
                 Image(uiImage: #imageLiteral(resourceName: "beach.png"))
                     .resizable()
@@ -25,53 +39,139 @@ struct BeachView: View {
                 Image(uiImage: #imageLiteral(resourceName: "plastic.png"))
                     .resizable()
                     .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
-                    .position(x: proxy.size.width * 0.8, y: proxy.size.height * 0.6)
+                    .position(x: canPosition.x, y: canPosition.y)
+                    .onAppear{
+                        canPosition = CGPoint(
+                            x: proxy.size.width * 0.8, y: proxy.size.height * 0.5                        )
+                    }
                 
+                Image(uiImage: #imageLiteral(resourceName: "lixo1.png"))
+                    .resizable()
+                    .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+                    .position(x: positionTrash1.x, y: positionTrash1.y)
+                    .gesture(
+                        DragGesture()
+                            .onChanged({ value in
+                                positionTrash1 = value.location
+                            })
+                    )
+                    .onAppear{
+                        positionTrash1 = CGPoint(
+                            x: proxy.size.width * 0.1, y: proxy.size.height * 0.55
+                        )
+                    }
                 
+//                alterar essa parte, está com erro
+//                    .onChange(of: positionTrash1, perform: { newValue in
+//
+//                        var entrou = false
+//
+//                        if (newValue.x > canPosition.x && newValue.y > canPosition.y) && (entrou != true) {
+//
+//
+//                            entrou = true
+//                            positionTrash1 = CGPoint(
+//                                            x: -1000, y: -1000
+//                                        )
+//                            print("Sumiu", controlCan, positionTrash1.x, positionTrash1.y)
+//                            return controlCan+=1
+//
+//                                    }                                })
                 
+                Image(uiImage: #imageLiteral(resourceName: "lixo2.png"))
+                    .resizable()
+                    .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+                    .position(x: positionTrash2.x, y: positionTrash2.y)
+                    .gesture(
+                        DragGesture()
+                            .onChanged({ value in
+                                positionTrash2 = value.location
+                            })
+                    )
+                    .onAppear{
+                        positionTrash2 = CGPoint(
+                            x: proxy.size.width * 0.5, y: proxy.size.height * 0.55
+                        )
+                    }
+                
+                Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
+                    .resizable()
+                    .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+                    .position(x: positionTrash3.x, y: positionTrash3.y)
+                    .gesture(
+                        DragGesture()
+                            .onChanged({ value in
+                                positionTrash3 = value.location
+                            })
+                    )
+                    .onAppear{
+                        positionTrash3 = CGPoint(
+                            x: proxy.size.width * 0.6, y: proxy.size.height * 0.55
+                        )
+                    }
+                
+                Image(uiImage: #imageLiteral(resourceName: "lixo2.png"))
+                    .resizable()
+                    .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+                    .position(x: positionTrash4.x, y: positionTrash4.y)
+                    .gesture(
+                        DragGesture()
+                            .onChanged({ value in
+                                positionTrash4 = value.location
+                            })
+                    )
+                    .onAppear{
+                        positionTrash4 = CGPoint(
+                            x: proxy.size.width * 0.25, y: proxy.size.height * 0.35
+                        )
+                    }
+                
+               
+
+
                 Text(displayText)
                     .padding()
                     .frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.65)
                     .position(x: proxy.size.width * 0.45, y: proxy.size.height * 0.75)
-                
+
                 Image(uiImage: #imageLiteral(resourceName: "skip.png"))
                     .resizable()
                     .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.10)
                     .position(x: proxy.size.width * 0.85, y: proxy.size.height * 0.75)
                     .onTapGesture {
-                        self.contador += 1
-                        if(self.contador >= 545){
+                        self.control += 1
+                        if(self.control >= 545){
                             displayText = "Congrats! You cleaned all the beach!"
                         }
                         else {
-                            switch self.contador % 9 {
+                            switch self.control % 9 {
                         case 1:
                             displayText = "Did you know that half of all plastic produced in the world ends up in the ocean? "
                         case 2:
                             displayText = "People need to be more careful with that they throw away. Never litter and always when you go to the beach, pick up all your trash and dispose of it in proper trash cans."
                         case 3:
                             displayText = "Now I ask you: do you have any idea how much gargabe that people produced in city? No?"
-                            
+
                         case 4:
                             displayText = "Each person produces more than 1kg of waste every day. Hm... now multiply that by the number of days in a year..."
-                            
+
                         case 5:
                             displayText = "There is more trash than people in the city! "
-                            
+
                         case 6:
                             displayText = "The problem is that people take this trash to nature, polluting the habitat of various animals, especially my friends who live in the mangroves and in the depths of the sea."
-                            
+
                         case 7:
                             displayText = "It is the duty of every citizen to not let trash be thrown anywhere. Let's practice it?"
-                            
+
                         case 8:
                             displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
-                            
+
                         default:
                             displayText = "Let`s go, clean our beach"
                         }
                         }
-                        
+
                     }
             }
         }
