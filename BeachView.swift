@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 
 struct BeachView: View {
+    @State private var contador = 0
+
+    @State private var displayText = "We are on the beach! One of my favorite places of all world. But look at that! It's all dirty."
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack {
@@ -25,6 +29,45 @@ struct BeachView: View {
                 
                 Text("teste")
                     .font(.largeTitle)
+                
+                Text(displayText)
+                    .padding()
+                    .frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.65)
+                    .position(x: proxy.size.width * 0.45, y: proxy.size.height * 0.75)
+                
+                Image(uiImage: #imageLiteral(resourceName: "skip.png"))
+                    .resizable()
+                    .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.10)
+                    .position(x: proxy.size.width * 0.85, y: proxy.size.height * 0.75)
+                    .onTapGesture {
+                        self.contador += 1
+                        switch self.contador % 9 {
+                        case 1:
+                            displayText = "Did you know that half of all plastic produced in the world ends up in the ocean? "
+                        case 2:
+                            displayText = "People need to be more careful with that they throw away. Never litter and always when you go to the beach, pick up all your trash and dispose of it in proper trash cans."
+                        case 3:
+                            displayText = "Now I ask you: do you have any idea how much gargabe that people produced in city? No?"
+                            
+                        case 4:
+                            displayText = "Each person produces more than 1kg of waste every day. Hm... now multiply that by the number of days in a year..."
+                            
+                        case 5:
+                            displayText = "There is more trash than people in the city! "
+                            
+                        case 6:
+                            displayText = "The problem is that people take this trash to nature, polluting the habitat of various animals, especially my friends who live in the mangroves and in the depths of the sea."
+                            
+                        case 7:
+                            displayText = "It is the duty of every citizen to not let trash be thrown anywhere. Let's practice it?"
+                            
+                        case 8:
+                            displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
+                        
+                        default:
+                            displayText = "Let`s go, clean our beach"
+                        }
+                    }
             }
         }
     }
