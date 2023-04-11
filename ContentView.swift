@@ -16,12 +16,7 @@ struct ContentView: View {
                     .scaledToFit()
                     .edgesIgnoringSafeArea(.all)
 
-                Text("Cleaning the World")
-                    .font(.largeTitle)
-                    .padding(.bottom, 20)
-                    .position(x: proxy.size.width * 0.5, y: proxy.size.height * 0.3)
-                Text("a interactive game")
-                    .position(x: proxy.size.width * 0.5, y: proxy.size.height * 0.33)
+                
                 
                 HStack{
                     NavigationLink(destination: BeachView()) {
@@ -36,7 +31,7 @@ struct ContentView: View {
                             .frame(width: proxy.size.width * 0.22, height: proxy.size.height * 0.20)
                     }
                     
-                    NavigationLink(destination: MangueView()) {
+                    NavigationLink(destination: MangroveView()) {
                         Image(uiImage: #imageLiteral(resourceName: "mangue_bubble.png"))
                             .resizable()
                             .frame(width: proxy.size.width * 0.22, height: proxy.size.height * 0.20)
@@ -44,7 +39,6 @@ struct ContentView: View {
                     
                 }
                 Text(displayText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                     .frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.65)
                     .position(x: proxy.size.width * 0.45, y: proxy.size.height * 0.75)
@@ -54,59 +48,5 @@ struct ContentView: View {
     }
 }
     
-    
-
-
-struct BeachView: View {
-    var body: some View {
-        GeometryReader { proxy in
-            ZStack {
-                Image(uiImage: #imageLiteral(resourceName: "beach.png"))
-                    .resizable()
-                    .scaledToFit()
-                    .edgesIgnoringSafeArea(.all)
-                    .position(x: proxy.size.width * 0.5, y: proxy.size.height * 0.48)
-
-                Text("Beach")
-                    .font(.largeTitle)
-            }
-        }
-    }
-}
-
-struct TownView: View {
-    var body: some View {
-        GeometryReader { proxy in
-            
-            ZStack {
-                Image(uiImage: #imageLiteral(resourceName: "town.png"))
-                    .resizable()
-                    .scaledToFit()
-                    .edgesIgnoringSafeArea(.all)
-                    .position(x: proxy.size.width * 0.5, y: proxy.size.height * 0.48)
-
-                Text("Town")
-                    .font(.largeTitle)
-            }
-        }
-    }
-}
-
-struct MangueView: View {
-    var body: some View {
-        GeometryReader { proxy in
-            
-            ZStack {
-                Image(uiImage: #imageLiteral(resourceName: "mangue.png"))
-                    .resizable()
-                    .scaledToFit()
-                    .edgesIgnoringSafeArea(.all)
-                    .position(x: proxy.size.width * 0.5, y: proxy.size.height * 0.48)
-                Text("Mangue")
-                    .font(.largeTitle)
-            }
-        }
-    }
-}
 
 
