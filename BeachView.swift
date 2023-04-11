@@ -1,7 +1,7 @@
 //
 //  BeachView.swift
 //  Cleaning the World
-//
+// 
 //  Created by user on 11/04/23.
 //
 
@@ -27,8 +27,7 @@ struct BeachView: View {
                     .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
                     .position(x: proxy.size.width * 0.8, y: proxy.size.height * 0.6)
                 
-                Text("teste")
-                    .font(.largeTitle)
+                
                 
                 Text(displayText)
                     .padding()
@@ -41,7 +40,11 @@ struct BeachView: View {
                     .position(x: proxy.size.width * 0.85, y: proxy.size.height * 0.75)
                     .onTapGesture {
                         self.contador += 1
-                        switch self.contador % 9 {
+                        if(self.contador >= 545){
+                            displayText = "Congrats! You cleaned all the beach!"
+                        }
+                        else {
+                            switch self.contador % 9 {
                         case 1:
                             displayText = "Did you know that half of all plastic produced in the world ends up in the ocean? "
                         case 2:
@@ -63,12 +66,16 @@ struct BeachView: View {
                             
                         case 8:
                             displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
-                        
+                            
                         default:
                             displayText = "Let`s go, clean our beach"
                         }
+                        }
+                        
                     }
             }
         }
     }
 }
+
+
