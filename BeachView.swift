@@ -268,13 +268,17 @@ struct BeachView: View {
         }
         .alert(isPresented: $showingAlert) {
             Alert(
-                title: Text("Important message"),
-                message: Text("Wear sunscreen"),
-                dismissButton: .default(Text("Got it!"))
+                title: Text("Congratulations!"),
+                message: Text("Awesome! You cleaned up the whole beach and helped me save all my little sea friends. Do you want to clean up more places with me?"),
+                dismissButton: .default(Text("Let's go"))
             )
         }
         .onChange(of: controlCan) { newValue in
             showingAlert = newValue >= 4
+            if newValue >= 4 {
+                    displayText = "Great job! You cleaned up a lot. Let's go to another place."
+                }
+
         }
     }
 }
