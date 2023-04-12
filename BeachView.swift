@@ -36,6 +36,8 @@ struct BeachView: View {
     
     @State private var showingAlert = false
 
+    @State private var showNewView = false
+
     func lixo1(proxy: GeometryProxy) -> some View {
         Image(uiImage: #imageLiteral(resourceName: "lixo1.png"))
             .resizable()
@@ -270,9 +272,15 @@ struct BeachView: View {
             Alert(
                 title: Text("Congratulations!"),
                 message: Text("Awesome! You cleaned up the whole beach and helped me save all my little sea friends. Do you want to clean up more places with me?"),
-                dismissButton: .default(Text("Let's go"))
-            )
+                dismissButton: .default(Text("Let's go")){
+                    NavigationLink(destination: ContentView()) {
+                        EmptyView()
+                    }
+                }
+                )
+            
         }
+        
         .onChange(of: controlCan) { newValue in
             showingAlert = newValue >= 4
             if newValue >= 4 {
@@ -281,6 +289,10 @@ struct BeachView: View {
 
         }
     }
+    
 }
+
+
+
 
 
