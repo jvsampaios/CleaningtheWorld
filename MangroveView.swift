@@ -12,7 +12,7 @@ import UIKit
 struct MangroveView: View {
     @State private var control = 0
     
-    @State private var displayText = "We are on the beach! One of my favorite places of all world. But look at that! It's all dirty."
+    @State private var displayText = "Welcome to the mangrove forest. This is where many species reproduce, just like me!"
     
     @State private var positionTrash1 = CGPoint.zero
     
