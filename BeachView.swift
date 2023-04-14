@@ -109,7 +109,7 @@ struct BeachView: View {
             )
             .onAppear{
                 positionTrash2 = CGPoint(
-                    x: proxy.size.width * 0.4, y: proxy.size.height * 0.55
+                    x: proxy.size.width * 0.4, y: proxy.size.height * 0.60
                 )
             }
     }
@@ -308,7 +308,7 @@ struct BeachView: View {
                 
                 Image(uiImage: #imageLiteral(resourceName: "plastic.png"))
                     .resizable()
-                    .frame(width: proxy.size.width * canProportion, height: proxy.size.width * canProportion)
+                    .frame(width: proxy.size.width * canProportion, height: proxy.size.height * canProportion)
                     .position(x: canPosition.x, y: canPosition.y)
                 
                     .onAppear{

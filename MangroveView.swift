@@ -44,7 +44,7 @@ struct MangroveView: View {
     @State private var showNewView = false
 
     func lixo1(proxy: GeometryProxy) -> some View {
-        Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
+        Image(uiImage: #imageLiteral(resourceName: "lixo12.png"))
             .resizable()
             .frame(width: proxy.size.width * 0.15, height: proxy.size.width * 0.15)
             .position(x: positionTrash1.x, y: positionTrash1.y)
@@ -79,7 +79,7 @@ struct MangroveView: View {
             }
     }
     
-    func lixo2(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo7.png"))
+    func lixo2(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo11.png"))
             .resizable()
             .frame(width: proxy.size.width * 0.10, height: proxy.size.width * 0.10)
             .position(x: positionTrash2.x, y: positionTrash2.y)
@@ -109,14 +109,14 @@ struct MangroveView: View {
             )
             .onAppear{
                 positionTrash2 = CGPoint(
-                    x: proxy.size.width * 0.4, y: proxy.size.height * 0.55
+                    x: proxy.size.width * 0.4, y: proxy.size.height * 0.60
                 )
             }
     }
     
     func lixo3(proxy: GeometryProxy) -> some View {
         
-     Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
+     Image(uiImage: #imageLiteral(resourceName: "lixo11.png"))
         .resizable()
         .frame(width: proxy.size.width * 0.15, height: proxy.size.width * 0.15)
         .position(x: positionTrash3.x, y: positionTrash3.y)
@@ -146,12 +146,12 @@ struct MangroveView: View {
         )
         .onAppear{
             positionTrash3 = CGPoint(
-                x: proxy.size.width * 0.6, y: proxy.size.height * 0.60
+                x: proxy.size.width * 0.6, y: proxy.size.height * 0.55
             )
         }
 }
     
-    func lixo4(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo7.png"))
+    func lixo4(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo13.png"))
             .resizable()
             .frame(width: proxy.size.width * 0.10, height: proxy.size.width * 0.10)
             .position(x: positionTrash4.x, y: positionTrash4.y)
@@ -181,14 +181,14 @@ struct MangroveView: View {
             )
             .onAppear{
                 positionTrash4 = CGPoint(
-                    x: proxy.size.width * 0.60, y: proxy.size.height * 0.35
+                    x: proxy.size.width * 0.80, y: proxy.size.height * 0.55
                 )
             }
     }
     
     func lixo5(proxy: GeometryProxy) -> some View {
         
-     Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
+     Image(uiImage: #imageLiteral(resourceName: "lixo12.png"))
         .resizable()
         .frame(width: proxy.size.width * 0.15, height: proxy.size.width * 0.15)
         .position(x: positionTrash5.x, y: positionTrash5.y)
@@ -218,7 +218,7 @@ struct MangroveView: View {
         )
         .onAppear{
             positionTrash5 = CGPoint(
-                x: proxy.size.width * 0.8, y: proxy.size.height * 0.35
+                x: proxy.size.width * 0.9, y: proxy.size.height * 0.55
             )
         }
 }
@@ -308,12 +308,12 @@ struct MangroveView: View {
                 
                 Image(uiImage: #imageLiteral(resourceName: "metal.png"))
                     .resizable()
-                    .frame(width: proxy.size.width * canProportion, height: proxy.size.width * canProportion)
+                    .frame(width: proxy.size.width * canProportion, height: proxy.size.height * canProportion)
                     .position(x: canPosition.x, y: canPosition.y)
                 
                     .onAppear{
                         canPosition = CGPoint(
-                            x: proxy.size.width * 0.6, y: proxy.size.height * 0.45)
+                            x: proxy.size.width * 0.6, y: proxy.size.height * 0.40)
                         
                     }
                 

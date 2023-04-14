@@ -44,7 +44,7 @@ struct TownView: View {
     @State private var showNewView = false
 
     func lixo1(proxy: GeometryProxy) -> some View {
-        Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
+        Image(uiImage: #imageLiteral(resourceName: "lixo1.png"))
             .resizable()
             .frame(width: proxy.size.width * 0.15, height: proxy.size.width * 0.15)
             .position(x: positionTrash1.x, y: positionTrash1.y)
@@ -74,14 +74,14 @@ struct TownView: View {
             )
             .onAppear{
                 positionTrash1 = CGPoint(
-                    x: proxy.size.width * 0.1, y: proxy.size.height * 0.55
+                    x: proxy.size.width * 0.3, y: proxy.size.height * 0.55
                 )
             }
     }
     
-    func lixo2(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo7.png"))
+    func lixo2(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo2.png"))
             .resizable()
-            .frame(width: proxy.size.width * 0.10, height: proxy.size.width * 0.10)
+            .frame(width: proxy.size.width * 0.20, height: proxy.size.width * 0.20)
             .position(x: positionTrash2.x, y: positionTrash2.y)
             .gesture(
                 DragGesture()
@@ -116,7 +116,7 @@ struct TownView: View {
     
     func lixo3(proxy: GeometryProxy) -> some View {
         
-     Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
+     Image(uiImage: #imageLiteral(resourceName: "lixo1.png"))
         .resizable()
         .frame(width: proxy.size.width * 0.15, height: proxy.size.width * 0.15)
         .position(x: positionTrash3.x, y: positionTrash3.y)
@@ -151,9 +151,9 @@ struct TownView: View {
         }
 }
     
-    func lixo4(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo7.png"))
+    func lixo4(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo2.png"))
             .resizable()
-            .frame(width: proxy.size.width * 0.10, height: proxy.size.width * 0.10)
+            .frame(width: proxy.size.width * 0.20, height: proxy.size.width * 0.20)
             .position(x: positionTrash4.x, y: positionTrash4.y)
             .gesture(
                 DragGesture()
@@ -181,16 +181,16 @@ struct TownView: View {
             )
             .onAppear{
                 positionTrash4 = CGPoint(
-                    x: proxy.size.width * 0.60, y: proxy.size.height * 0.35
+                    x: proxy.size.width * 0.40, y: proxy.size.height * 0.45
                 )
             }
     }
     
     func lixo5(proxy: GeometryProxy) -> some View {
         
-     Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
+     Image(uiImage: #imageLiteral(resourceName: "lixo2.png"))
         .resizable()
-        .frame(width: proxy.size.width * 0.15, height: proxy.size.width * 0.15)
+        .frame(width: proxy.size.width * 0.20, height: proxy.size.width * 0.20)
         .position(x: positionTrash5.x, y: positionTrash5.y)
         .gesture(
             DragGesture()
@@ -218,7 +218,7 @@ struct TownView: View {
         )
         .onAppear{
             positionTrash5 = CGPoint(
-                x: proxy.size.width * 0.8, y: proxy.size.height * 0.35
+                x: proxy.size.width * 0.2, y: proxy.size.height * 0.60
             )
         }
 }
@@ -231,8 +231,8 @@ struct TownView: View {
             ZStack {
                 
                 VStack {
-                    Color(red: 200/255, green: 224/255, blue: 255/255)
-                    Color(red: 238/255, green: 217/255, blue: 170/255)
+                    Color(red: 138/255, green: 225/255, blue: 245/255)
+                    Color(red: 31/255, green: 29/255, blue: 30/255)
                 }
                 .ignoresSafeArea()
                 
@@ -308,12 +308,12 @@ struct TownView: View {
                 
                 Image(uiImage: #imageLiteral(resourceName: "paper.png"))
                     .resizable()
-                    .frame(width: proxy.size.width * canProportion, height: proxy.size.width * canProportion)
+                    .frame(width: proxy.size.width * canProportion, height: proxy.size.height * canProportion)
                     .position(x: canPosition.x, y: canPosition.y)
                 
                     .onAppear{
                         canPosition = CGPoint(
-                            x: proxy.size.width * 0.8, y: proxy.size.height * 0.60)
+                            x: proxy.size.width * 0.8, y: proxy.size.height * 0.55)
                         
                     }
                 
