@@ -46,7 +46,7 @@ struct BeachView: View {
     func lixo1(proxy: GeometryProxy) -> some View {
         Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
             .resizable()
-            .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+            .frame(width: proxy.size.width * 0.15, height: proxy.size.width * 0.15)
             .position(x: positionTrash1.x, y: positionTrash1.y)
             .gesture(
                 DragGesture()
@@ -81,7 +81,7 @@ struct BeachView: View {
     
     func lixo2(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo7.png"))
             .resizable()
-            .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.10)
+            .frame(width: proxy.size.width * 0.10, height: proxy.size.width * 0.10)
             .position(x: positionTrash2.x, y: positionTrash2.y)
             .gesture(
                 DragGesture()
@@ -109,7 +109,7 @@ struct BeachView: View {
             )
             .onAppear{
                 positionTrash2 = CGPoint(
-                    x: proxy.size.width * 0.4, y: proxy.size.height * 0.55
+                    x: proxy.size.width * 0.4, y: proxy.size.height * 0.60
                 )
             }
     }
@@ -118,7 +118,7 @@ struct BeachView: View {
         
      Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
         .resizable()
-        .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+        .frame(width: proxy.size.width * 0.15, height: proxy.size.width * 0.15)
         .position(x: positionTrash3.x, y: positionTrash3.y)
         .gesture(
             DragGesture()
@@ -146,14 +146,14 @@ struct BeachView: View {
         )
         .onAppear{
             positionTrash3 = CGPoint(
-                x: proxy.size.width * 0.6, y: proxy.size.height * 0.55
+                x: proxy.size.width * 0.6, y: proxy.size.height * 0.60
             )
         }
 }
     
     func lixo4(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo7.png"))
             .resizable()
-            .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.10)
+            .frame(width: proxy.size.width * 0.10, height: proxy.size.width * 0.10)
             .position(x: positionTrash4.x, y: positionTrash4.y)
             .gesture(
                 DragGesture()
@@ -190,7 +190,7 @@ struct BeachView: View {
         
      Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
         .resizable()
-        .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+        .frame(width: proxy.size.width * 0.15, height: proxy.size.width * 0.15)
         .position(x: positionTrash5.x, y: positionTrash5.y)
         .gesture(
             DragGesture()
@@ -222,58 +222,7 @@ struct BeachView: View {
             )
         }
 }
-    
-    func background(proxy: GeometryProxy) -> some View { Image(uiImage: #imageLiteral(resourceName: "beach.png"))
-            .resizable()
-            .scaledToFit()
-            .edgesIgnoringSafeArea(.all)
-            .position(x: proxy.size.width * 0.5, y: proxy.size.height * 0.48)
-    }
-    
-    func chating(proxy: GeometryProxy) -> some View {
-        
-        Image(uiImage: #imageLiteral(resourceName: "skip.png"))
-            .resizable()
-            .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.08)
-            .position(x: proxy.size.width * 0.85, y: proxy.size.height * 0.74)
-            .onTapGesture {
-                self.control += 1
-                if(self.control >= 545){
-                    displayText = "Congrats! You cleaned all the beach!"
-        
-                }
-                else {
-                    switch self.control % 9 {
-                    case 1:
-                        displayText = "Did you know that half of all plastic produced in the world ends up in the ocean? "
-                    case 2:
-                        displayText = "People need to be more careful with that they throw away. Never litter and always when you go to the beach, pick up all your trash and dispose of it in proper trash cans."
-                    case 3:
-                        displayText = "Now I ask you: do you have any idea how much gargabe that people produced in city? No?"
-                        
-                    case 4:
-                        displayText = "Each person produces more than 1kg of waste every day. Hm... now multiply that by the number of days in a year..."
-                        
-                    case 5:
-                        displayText = "There is more trash than people in the city! "
-                        
-                    case 6:
-                        displayText = "The problem is that people take this trash to nature, polluting the habitat of various animals, especially my friends who live in the mangroves and in the depths of the sea."
-                        
-                    case 7:
-                        displayText = "It is the duty of every citizen to not let trash be thrown anywhere. Let's practice it?"
-                        
-                    case 8:
-                        displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
-                        
-                    default:
-                        displayText = "Let`s go, clean our beach"
-                    }
-                }
-                
-            }
-    }
-    
+            
     @State var showContentView: Bool = false
     
     var body: some View {
@@ -282,12 +231,80 @@ struct BeachView: View {
             ZStack {
                 
                 VStack {
-                    Color(red: 0, green: 100/255, blue: 180/255)
-                    Color(red: 80/255, green: 50/255, blue: 10/255)
+                    Color(red: 200/255, green: 224/255, blue: 255/255)
+                    Color(red: 238/255, green: 217/255, blue: 170/255)
                 }
                 .ignoresSafeArea()
                 
-                background(proxy: proxy)
+                VStack(spacing: 0) {
+                    
+                    Image("beach")
+                        .resizable()
+                        .scaledToFit()
+                        .ignoresSafeArea()
+                    
+                    ZStack {
+                        Image("chat")
+                            .resizable()
+                            .scaledToFit()
+                        HStack {
+                            Spacer()
+                                .frame(maxWidth: proxy.size.width * 0.2)
+                            Text(displayText)
+                                .padding()
+                            //.frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.65)
+                            //.position(x: proxy.size.width * 0.45, y: proxy.size.height * 0.75)
+                                .foregroundColor(.blue)
+                                .font(
+                                    .system(
+                                        size: proxy.size.width * 0.025,
+                                        weight: .medium,
+                                        design: .rounded
+                                    )
+                                )
+                            
+                            Image("skip")
+                                .resizable()
+                                .frame(width: proxy.size.width * 0.10, height: proxy.size.width * 0.10)
+                                .onTapGesture {
+                                    self.control += 1
+                                    if(self.control >= 545){
+                                        displayText = "Congrats! You cleaned all the beach!"
+                            
+                                    }
+                                    else {
+                                        switch self.control {
+                                        case 1:
+                                            displayText = "Did you know that half of all plastic produced in the world ends up in the ocean? "
+                                        case 2:
+                                            displayText = "People need to be more careful with that they throw away. Never litter and always when you go to the beach, pick up all your trash and dispose of it in proper trash cans."
+                                        case 3:
+                                            displayText = "Now I ask you: do you have any idea how much gargabe that people produced in city? No?"
+                                            
+                                        case 4:
+                                            displayText = "Each person produces more than 1kg of waste every day. Hm... now multiply that by the number of days in a year..."
+                                            
+                                        case 5:
+                                            displayText = "There is more trash than people in the city! "
+                                            
+                                        case 6:
+                                            displayText = "The problem is that people take this trash to nature, polluting the habitat of various animals, especially my friends who live in the mangroves and in the depths of the sea."
+                                            
+                                        case 7:
+                                            displayText = "It is the duty of every citizen to not let trash be thrown anywhere. Let's practice it?"
+                                            
+                                        case 8:
+                                            displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
+                                            
+                                        default:
+                                            displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
+                                        }
+                                    }
+                                    
+                                }
+                        }
+                    }
+                }
                 
                 Image(uiImage: #imageLiteral(resourceName: "plastic.png"))
                     .resizable()
@@ -296,7 +313,7 @@ struct BeachView: View {
                 
                     .onAppear{
                         canPosition = CGPoint(
-                            x: proxy.size.width * 0.8, y: proxy.size.height * 0.5                        )
+                            x: proxy.size.width * 0.8, y: proxy.size.height * 0.55)
                         
                     }
                 
@@ -311,14 +328,8 @@ struct BeachView: View {
                 lixo5(proxy: proxy)
 
                 
-                Text(displayText)
-                    .padding()
-                    .frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.65)
-                    .position(x: proxy.size.width * 0.45, y: proxy.size.height * 0.75)
-                    .foregroundColor(.blue)
-                    .font(.system(size: proxy.size.width * 0.025))
+            
                 
-                chating(proxy: proxy)
             }
         }
         .alert(isPresented: $showingAlert) {
@@ -341,4 +352,17 @@ struct BeachView: View {
         }
     }
     
+}
+
+
+
+
+
+struct BeachView_Previews: PreviewProvider {
+    static var previews: some View {
+        BeachView()
+            .previewInterfaceOrientation(.portrait)
+        BeachView()
+            .previewInterfaceOrientation(.landscapeLeft)
+    }
 }
