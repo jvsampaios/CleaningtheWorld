@@ -10,6 +10,9 @@ import SwiftUI
 import UIKit
 
 struct BeachView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
     @State private var control = 0
     
     @State private var displayText = "We are on the beach! One of my favorite places of all world. But look at that! It's all dirty."
@@ -21,6 +24,8 @@ struct BeachView: View {
     @State private var positionTrash3 = CGPoint.zero
     
     @State private var positionTrash4 = CGPoint.zero
+    
+    @State private var positionTrash5 = CGPoint.zero
     
     @State private var canPosition = CGPoint.zero
     
@@ -39,7 +44,7 @@ struct BeachView: View {
     @State private var showNewView = false
 
     func lixo1(proxy: GeometryProxy) -> some View {
-        Image(uiImage: #imageLiteral(resourceName: "lixo1.png"))
+        Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
             .resizable()
             .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
             .position(x: positionTrash1.x, y: positionTrash1.y)
@@ -74,9 +79,9 @@ struct BeachView: View {
             }
     }
     
-    func lixo2(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo2.png"))
+    func lixo2(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo7.png"))
             .resizable()
-            .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+            .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.10)
             .position(x: positionTrash2.x, y: positionTrash2.y)
             .gesture(
                 DragGesture()
@@ -104,7 +109,7 @@ struct BeachView: View {
             )
             .onAppear{
                 positionTrash2 = CGPoint(
-                    x: proxy.size.width * 0.5, y: proxy.size.height * 0.55
+                    x: proxy.size.width * 0.4, y: proxy.size.height * 0.55
                 )
             }
     }
@@ -146,9 +151,9 @@ struct BeachView: View {
         }
 }
     
-    func lixo4(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo2.png"))
+    func lixo4(proxy: GeometryProxy) -> some View {      Image(uiImage: #imageLiteral(resourceName: "lixo7.png"))
             .resizable()
-            .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+            .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.10)
             .position(x: positionTrash4.x, y: positionTrash4.y)
             .gesture(
                 DragGesture()
@@ -176,10 +181,47 @@ struct BeachView: View {
             )
             .onAppear{
                 positionTrash4 = CGPoint(
-                    x: proxy.size.width * 0.25, y: proxy.size.height * 0.35
+                    x: proxy.size.width * 0.60, y: proxy.size.height * 0.35
                 )
             }
     }
+    
+    func lixo5(proxy: GeometryProxy) -> some View {
+        
+     Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
+        .resizable()
+        .frame(width: proxy.size.width * 0.15, height: proxy.size.height * 0.15)
+        .position(x: positionTrash5.x, y: positionTrash5.y)
+        .gesture(
+            DragGesture()
+                .onChanged({ value in
+                    positionTrash5 = value.location
+                    
+                })
+                .onEnded { _ in
+                    
+                    canSizeWidth = proxy.size.width * canProportion
+                    canSizeHeight = proxy.size.height * canProportion
+                    
+                    
+                    if ((positionTrash5.x + canSizeWidth/2 >= canPosition.x) && (positionTrash5.y + canSizeHeight/2 >= canPosition.y) && (positionTrash5.x < canPosition.x + canSizeWidth/2) && (positionTrash5.y < canPosition.y + canSizeHeight/2)) {
+                        
+                        positionTrash5 = CGPoint(
+                            x: -1000, y: -1000
+                        )
+                        controlCan+=1
+                        print("Sumiu", controlCan)
+                        
+                        
+                    }
+                }
+        )
+        .onAppear{
+            positionTrash5 = CGPoint(
+                x: proxy.size.width * 0.8, y: proxy.size.height * 0.35
+            )
+        }
+}
     
     func background(proxy: GeometryProxy) -> some View { Image(uiImage: #imageLiteral(resourceName: "beach.png"))
             .resizable()
@@ -192,12 +234,13 @@ struct BeachView: View {
         
         Image(uiImage: #imageLiteral(resourceName: "skip.png"))
             .resizable()
-            .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.10)
-            .position(x: proxy.size.width * 0.85, y: proxy.size.height * 0.75)
+            .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.08)
+            .position(x: proxy.size.width * 0.85, y: proxy.size.height * 0.74)
             .onTapGesture {
                 self.control += 1
                 if(self.control >= 545){
                     displayText = "Congrats! You cleaned all the beach!"
+        
                 }
                 else {
                     switch self.control % 9 {
@@ -231,10 +274,18 @@ struct BeachView: View {
             }
     }
     
+    @State var showContentView: Bool = false
+    
     var body: some View {
         GeometryReader { proxy in
             
             ZStack {
+                
+                VStack {
+                    Color(red: 0, green: 100/255, blue: 180/255)
+                    Color(red: 80/255, green: 50/255, blue: 10/255)
+                }
+                .ignoresSafeArea()
                 
                 background(proxy: proxy)
                 
@@ -257,33 +308,33 @@ struct BeachView: View {
                 
                 lixo4(proxy: proxy)
                 
+                lixo5(proxy: proxy)
+
+                
                 Text(displayText)
                     .padding()
                     .frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.65)
                     .position(x: proxy.size.width * 0.45, y: proxy.size.height * 0.75)
+                    .foregroundColor(.blue)
+                    .font(.system(size: proxy.size.width * 0.025))
                 
                 chating(proxy: proxy)
-
-                
-                
             }
         }
         .alert(isPresented: $showingAlert) {
             Alert(
                 title: Text("Congratulations!"),
                 message: Text("Awesome! You cleaned up the whole beach and helped me save all my little sea friends. Do you want to clean up more places with me?"),
-                dismissButton: .default(Text("Let's go")){
-                    NavigationLink(destination: ContentView()) {
-                        EmptyView()
-                    }
+                dismissButton: .default(Text("Let's go")) {
+                    dismiss()
                 }
-                )
+            )
             
         }
         
         .onChange(of: controlCan) { newValue in
-            showingAlert = newValue >= 4
-            if newValue >= 4 {
+            showingAlert = newValue >= 5
+            if newValue >= 5 {
                     displayText = "Great job! You cleaned up a lot. Let's go to another place."
                 }
 
@@ -291,8 +342,3 @@ struct BeachView: View {
     }
     
 }
-
-
-
-
-
