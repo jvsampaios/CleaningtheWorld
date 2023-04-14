@@ -10,6 +10,9 @@ import SwiftUI
 import UIKit
 
 struct MangroveView: View {
+    
+    @Environment(\.dismiss) var dismiss
+
     @State private var control = 0
     
     @State private var displayText = "Welcome to the mangrove forest. This is where many species reproduce, just like me!"
@@ -22,6 +25,10 @@ struct MangroveView: View {
     
     @State private var positionTrash4 = CGPoint.zero
     
+    @State private var positionTrash5 = CGPoint.zero
+
+    @State private var positionTrash6 = CGPoint.zero
+
     @State private var canPosition = CGPoint.zero
     
     @State private var controlCan = 0
@@ -264,7 +271,7 @@ struct MangroveView: View {
         
         Image(uiImage: #imageLiteral(resourceName: "skip.png"))
             .resizable()
-            .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.10)
+            .frame(width: proxy.size.width * 0.10, height: proxy.size.height * 0.08)
             .position(x: proxy.size.width * 0.85, y: proxy.size.height * 0.75)
             .onTapGesture {
                 self.control += 1
@@ -308,6 +315,12 @@ struct MangroveView: View {
             
             ZStack {
                 
+                VStack {
+                    Color(red: 0, green: 100/255, blue: 180/255)
+                    Color(red: 80/255, green: 50/255, blue: 10/255)
+                }
+                .ignoresSafeArea()
+                
                 background(proxy: proxy)
                 
                 Image(uiImage: #imageLiteral(resourceName: "metal.png"))
@@ -337,6 +350,8 @@ struct MangroveView: View {
                     .padding()
                     .frame(width: proxy.size.width * 0.5, height: proxy.size.height * 0.65)
                     .position(x: proxy.size.width * 0.45, y: proxy.size.height * 0.75)
+                    .foregroundColor(.blue)
+                    .font(.system(size: proxy.size.width * 0.025))
                 
                 chating(proxy: proxy)
 
@@ -348,10 +363,8 @@ struct MangroveView: View {
             Alert(
                 title: Text("Congratulations!"),
                 message: Text("Awesome! You cleaned up the whole mangrove beach and helped me save all my home. Do you want to clean up more places with me?"),
-                dismissButton: .default(Text("Let's go")){
-                    NavigationLink(destination: ContentView()) {
-                        EmptyView()
-                    }
+                dismissButton: .default(Text("Let's go")) {
+                    dismiss()
                 }
                 )
             
