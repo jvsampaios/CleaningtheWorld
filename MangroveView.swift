@@ -211,7 +211,7 @@ struct MangroveView: View {
             )
             .onAppear{
                 positionTrash5 = CGPoint(
-                    x: proxy.size.width * 0.25, y: proxy.size.height * 0.35
+                    x: proxy.size.width * 0.6, y: proxy.size.height * 0.40
                 )
             }
     }
@@ -246,7 +246,7 @@ struct MangroveView: View {
             )
             .onAppear{
                 positionTrash6 = CGPoint(
-                    x: proxy.size.width * 0.25, y: proxy.size.height * 0.35
+                    x: proxy.size.width * 0.35, y: proxy.size.height * 0.40
                 )
             }
     }
@@ -347,7 +347,7 @@ struct MangroveView: View {
         .alert(isPresented: $showingAlert) {
             Alert(
                 title: Text("Congratulations!"),
-                message: Text("Awesome! You cleaned up the whole beach and helped me save all my little sea friends. Do you want to clean up more places with me?"),
+                message: Text("Awesome! You cleaned up the whole mangrove beach and helped me save all my home. Do you want to clean up more places with me?"),
                 dismissButton: .default(Text("Let's go")){
                     NavigationLink(destination: ContentView()) {
                         EmptyView()
