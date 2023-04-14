@@ -4,6 +4,9 @@ struct ContentView: View {
     @State private var displayText = "Our rivers, mangroves and seas are dirty and polluted. That's sad! We need to change this reality before it's too late! Are you willing to help me?"
     
     @State private var contador = 0
+    
+    @State private var showingAlert = false
+
 
 
 //    @State private var displayText2 = "To become a Guardian and be part of our league for the preservation of the environment, it takes a lot of dedication."
@@ -57,14 +60,13 @@ struct ContentView: View {
                                 //.position(x: proxy.size.width * 0.85, y: proxy.size.height * 0.75)
                                 .onTapGesture {
                                     self.contador += 1
-                                    switch self.contador % 3 {
+                                    switch self.contador {
                                     case 1:
                                         displayText = "To become a Guardian and be part of our league for the preservation of the environment, it takes a lot of dedication."
                                     case 2:
                                         displayText = "It's time to get your hands on the trash... Oops! Get your hands dirty. Let's go, click on one of the images and start your journey..."
-                                        
                                     default:
-                                        displayText = "Our rivers, mangroves and seas are dirty and polluted. That's sad! We need to change this reality before it's too late! Are you willing to help me?"
+                                        displayText = "It's time to get your hands on the trash... Oops! Get your hands dirty. Let's go, click on one of the images and start your journey..."
                                     }
                                 }
                                 .padding()
@@ -91,9 +93,19 @@ struct ContentView: View {
                             .frame(width: proxy.size.width * 0.22, height: proxy.size.width * 0.22)
                     }
                 }
-
+                
             }
         }
+        .alert(isPresented: $showingAlert) {
+            Alert(
+                title: Text("Congratulations!"),
+                message: Text("Come on! Help me to protect our world. Click on one of the images and start your jorney"),
+                dismissButton: .default(Text("Let's go")) {
+                }
+            )
+            
+        }
+
     }
 }
     

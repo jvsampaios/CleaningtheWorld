@@ -66,7 +66,6 @@ struct TownView: View {
                                 x: -1000, y: -1000
                             )
                             controlCan+=1
-                            print("Sumiu", controlCan)
 
 
                         }
@@ -101,9 +100,7 @@ struct TownView: View {
                                 x: -1000, y: -1000
                             )
                             controlCan+=1
-                            print("Sumiu", controlCan)
-                            
-                            
+                                                    
                         }
                     }
             )
@@ -138,9 +135,6 @@ struct TownView: View {
                             x: -1000, y: -1000
                         )
                         controlCan+=1
-                        print("Sumiu", controlCan)
-                        
-                        
                     }
                 }
         )
@@ -173,7 +167,6 @@ struct TownView: View {
                                 x: -1000, y: -1000
                             )
                             controlCan+=1
-                            print("Sumiu", controlCan)
                             
                             
                         }
@@ -210,7 +203,6 @@ struct TownView: View {
                             x: -1000, y: -1000
                         )
                         controlCan+=1
-                        print("Sumiu", controlCan)
                         
                         
                     }
@@ -268,12 +260,8 @@ struct TownView: View {
                                 .frame(width: proxy.size.width * 0.10, height: proxy.size.width * 0.10)
                                 .onTapGesture {
                                     self.control += 1
-                                    if(self.control >= 545){
-                                        displayText = "Congrats! You cleaned all the beach!"
-                            
-                                    }
-                                    else {
-                                        switch self.control % 9 {
+                                    
+                                        switch self.control {
                                         case 1:
                                             displayText = "Did you know that half of all plastic produced in the world ends up in the ocean? "
                                         case 2:
@@ -297,11 +285,11 @@ struct TownView: View {
                                             displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
                                             
                                         default:
-                                            displayText = "Let`s go, clean our beach"
+                                            displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
                                         }
                                     }
                                     
-                                }
+                                
                         }
                     }
                 }

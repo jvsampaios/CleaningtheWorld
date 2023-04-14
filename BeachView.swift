@@ -273,7 +273,7 @@ struct BeachView: View {
                             
                                     }
                                     else {
-                                        switch self.control % 9 {
+                                        switch self.control {
                                         case 1:
                                             displayText = "Did you know that half of all plastic produced in the world ends up in the ocean? "
                                         case 2:
@@ -297,7 +297,7 @@ struct BeachView: View {
                                             displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
                                             
                                         default:
-                                            displayText = "Let`s go, clean our beach"
+                                            displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
                                         }
                                     }
                                     
