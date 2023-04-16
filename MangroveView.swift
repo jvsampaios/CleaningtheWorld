@@ -326,7 +326,7 @@ struct MangroveView: View {
         .alert(isPresented: $showingAlert) {
             Alert(
                 title: Text("Congratulations!"),
-                message: Text("Awesome! You cleaned up the whole beach and helped me save all my little sea friends. Do you want to clean up more places with me?"),
+                message: Text("Awesome! You cleaned up the whole mangrove and helped me save all my friends. Do you want to clean up more places with me?"),
                 dismissButton: .default(Text("Let's go")) {
                     dismiss()
                 }

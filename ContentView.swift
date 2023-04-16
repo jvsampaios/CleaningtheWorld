@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var displayText = "Our rivers, mangroves and seas are dirty and polluted. That's sad! We need to change this reality before it's too late! Are you willing to help me?"
+    @State private var displayText = "Hello! My name is Crabbert and I am a proud mangrove crab! I wear a very special hat called a 'cangaceiro hat' that is popular in the northeastern region of Brazil."
     
     @State private var contador = 0
     
@@ -62,11 +62,15 @@ struct ContentView: View {
                                     self.contador += 1
                                     switch self.contador {
                                     case 1:
-                                        displayText = "To become a Guardian and be part of our league for the preservation of the environment, it takes a lot of dedication."
+                                        displayText = "But I am not just any crab. I am on a mission to protect my home and my fellow animal friends from harm."
                                     case 2:
-                                        displayText = "It's time to get your hands on the trash... Oops! Get your hands dirty. Let's go, click on one of the images and start your journey..."
+                                        displayText = "You see, our habitat is threatened by pollution and improper waste disposal. It's not just an eyesore, but it also harms the environment and the animals that live here."
+                                    case 3:
+                                        displayText = "I love my home, and I want to make sure it's a safe and clean place for all of us to live. That's why I want to teach everyone, especially the young ones, about the importance of proper waste disposal and taking care of our environment."
+                                    case 4:
+                                        displayText = "So come along with me, and let's work together to keep our homes clean and healthy!"
                                     default:
-                                        displayText = "It's time to get your hands on the trash... Oops! Get your hands dirty. Let's go, click on one of the images and start your journey..."
+                                        displayText = "Click on one of the images and start your journey..."
                                     }
                                 }
                                 .padding()
