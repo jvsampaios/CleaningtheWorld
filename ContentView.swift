@@ -96,15 +96,7 @@ struct ContentView: View {
                 
             }
         }
-        .alert(isPresented: $showingAlert) {
-            Alert(
-                title: Text("Congratulations!"),
-                message: Text("Come on! Help me to protect our world. Click on one of the images and start your jorney"),
-                dismissButton: .default(Text("Let's go")) {
-                }
-            )
-            
-        }
+        
 
     }
 }

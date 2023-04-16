@@ -1,5 +1,5 @@
 //
-//  BeachView.swift
+//  MangroveView.swift
 //  Cleaning the World
 //
 //  Created by user on 11/04/23.
@@ -15,7 +15,7 @@ struct MangroveView: View {
     
     @State private var control = 0
     
-    @State private var displayText = "We are on the beach! One of my favorite places of all world. But look at that! It's all dirty."
+    @State private var displayText = "We are on the mangrove florest! I live here. I'm so happy you came to visit me today!."
     
     @State private var positionTrash1 = CGPoint.zero
     
@@ -266,29 +266,29 @@ struct MangroveView: View {
                                     
                                         switch self.control{
                                         case 1:
-                                            displayText = "Did you know that half of all plastic produced in the world ends up in the ocean? "
+                                            displayText = "You see, a lot of people don't realize that when they throw their trash in the water or on the shore, it can harm all the creatures that live here in the mangroves."
                                         case 2:
-                                            displayText = "People need to be more careful with that they throw away. Never litter and always when you go to the beach, pick up all your trash and dispose of it in proper trash cans."
+                                            displayText = "There are so many amazing animals that call this place home, like the fiddler crabs, mudskippers, and even the beautiful mangrove trees themselves."
                                         case 3:
-                                            displayText = "Now I ask you: do you have any idea how much gargabe that people produced in city? No?"
+                                            displayText = "But when we have to swim through piles of garbage or get caught up in plastic bags, it makes life really difficult for us."
                                             
                                         case 4:
-                                            displayText = "Each person produces more than 1kg of waste every day. Hm... now multiply that by the number of days in a year..."
+                                            displayText = "Plus, some of the things people throw away can be really dangerous for us. Chemicals and pollutants can seep into the water and hurt our bodies or make us sick."
                                             
                                         case 5:
-                                            displayText = "There is more trash than people in the city! "
+                                            displayText = "So, if you really want to help me and all my friends in the mangrove, there's a really simple thing you can do: throw your trash away in the proper place!"
                                             
                                         case 6:
-                                            displayText = "The problem is that people take this trash to nature, polluting the habitat of various animals, especially my friends who live in the mangroves and in the depths of the sea."
+                                            displayText = "Whether you're at the beach or near a river, make sure to use a garbage can or recycling bin."
                                             
                                         case 7:
-                                            displayText = "It is the duty of every citizen to not let trash be thrown anywhere. Let's practice it?"
+                                            displayText = "And if you ever see any litter lying around, you can be a hero and pick it up yourself! Every little bit helps."
                                             
                                         case 8:
-                                            displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
+                                            displayText = "Let's pratice? Clean the mangrove by dragging all that trash and dropping it in the proper trash can."
                                             
                                         default:
-                                            displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
+                                            displayText = "Thanks for listening, my little friend. Together, we can keep the mangroves clean and safe for all the creatures who live here!"
                                         
                                     }
                                     
