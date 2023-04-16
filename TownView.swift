@@ -15,7 +15,7 @@ struct TownView: View {
     
     @State private var control = 0
     
-    @State private var displayText = "We are on the beach! One of my favorite places of all world. But look at that! It's all dirty."
+    @State private var displayText = "We are on the the town! It's your home and you have to take care of it."
     
     @State private var positionTrash1 = CGPoint.zero
     
@@ -263,29 +263,20 @@ struct TownView: View {
                                     
                                         switch self.control {
                                         case 1:
-                                            displayText = "Did you know that half of all plastic produced in the world ends up in the ocean? "
+                                            displayText = "Unfortunately, many people don't realize the impact of their actions on the environment. When we throw trash on the streets or in the rivers, it not only looks bad, but it also affects the animals and plants that live there."
                                         case 2:
-                                            displayText = "People need to be more careful with that they throw away. Never litter and always when you go to the beach, pick up all your trash and dispose of it in proper trash cans."
+                                            displayText = "Plastic bags and other garbage can harm animals like birds, fish, and even turtles."
                                         case 3:
-                                            displayText = "Now I ask you: do you have any idea how much gargabe that people produced in city? No?"
+                                            displayText = "In addition, poor waste disposal can cause problems like flooding during heavy rains. When the drains are clogged with trash, the water has nowhere to go and can overflow into the streets and buildings."
                                             
                                         case 4:
-                                            displayText = "Each person produces more than 1kg of waste every day. Hm... now multiply that by the number of days in a year..."
+                                            displayText = "But there are things we can all do to help! We can start by properly disposing of our trash and recycling whenever possible. We can also pick up litter when we see it and encourage others to do the same."
                                             
                                         case 5:
-                                            displayText = "There is more trash than people in the city! "
-                                            
-                                        case 6:
-                                            displayText = "The problem is that people take this trash to nature, polluting the habitat of various animals, especially my friends who live in the mangroves and in the depths of the sea."
-                                            
-                                        case 7:
-                                            displayText = "It is the duty of every citizen to not let trash be thrown anywhere. Let's practice it?"
-                                            
-                                        case 8:
-                                            displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
+                                            displayText = "Let's work together to keep our urban environment clean and safe for all the animals and people that live here."
                                             
                                         default:
-                                            displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
+                                            displayText = "Clean our town by dragging all that trash and dropping it in the proper trash can."
                                         }
                                     }
                                     
