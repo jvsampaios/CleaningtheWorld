@@ -6,6 +6,13 @@ struct ContentView: View {
     @State private var contador = 0
     
     @State private var showingAlert = false
+    
+    @State private var booling = false
+    
+    @State private var booling2 = false
+
+    @State private var booling3 = false
+
 
 
 
@@ -83,18 +90,42 @@ struct ContentView: View {
                         Image(uiImage: #imageLiteral(resourceName: "beach_bubble.png"))
                             .resizable()
                             .frame(width: proxy.size.width * 0.22, height: proxy.size.width * 0.22)
+                            .offset(y:booling3 ? -50 : 0)
+                            .animation(Animation
+                                .easeInOut(duration: 0.5)
+                                .repeatForever()
+                                .delay(0.3), value: booling3)
+                            .onAppear(){
+                                self.booling3.toggle()
+                            }
                     }
                     
                     NavigationLink(destination: TownView()) {
                         Image(uiImage: #imageLiteral(resourceName: "town_bubble.png"))
                             .resizable()
                             .frame(width: proxy.size.width * 0.22, height: proxy.size.width * 0.22)
-                    }
+                            .offset(y:booling ? -50 : 0)
+                            .animation(Animation
+                                .easeInOut(duration: 0.5)
+                                .repeatForever()
+                                .delay(0.6), value: booling)
+                            .onAppear(){
+                                self.booling.toggle()
+                            }
+                                           }
                     
                     NavigationLink(destination: MangroveView()) {
                         Image(uiImage: #imageLiteral(resourceName: "mangue_bubble.png"))
                             .resizable()
                             .frame(width: proxy.size.width * 0.22, height: proxy.size.width * 0.22)
+                            .offset(y:booling2 ? -50 : 0)
+                            .animation(Animation
+                                .easeInOut(duration: 0.5)
+                                .repeatForever()
+                                .delay(0.9), value: booling2)
+                            .onAppear(){
+                                self.booling2.toggle()
+                            }
                     }
                 }
                 
