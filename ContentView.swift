@@ -12,6 +12,12 @@ struct ContentView: View {
     @State private var booling2 = false
 
     @State private var booling3 = false
+    
+    @State private var bouncing = false
+    
+    @State private var sumiu = 100.0
+
+
 
 
 
@@ -73,14 +79,22 @@ struct ContentView: View {
                                     case 2:
                                         displayText = "You see, our habitat is threatened by pollution and improper waste disposal. It's not just an eyesore, but it also harms the environment and the animals that live here."
                                     case 3:
-                                        displayText = "I love my home, and I want to make sure it's a safe and clean place for all of us to live. That's why I want to teach everyone, especially the young ones, about the importance of proper waste disposal and taking care of our environment."
+                                        displayText = "I love my home, and I want to make sure it's a safe and clean place for all of us to live. That's why I want to teach everyone, about the importance of proper waste disposal and taking care of our environment."
                                     case 4:
                                         displayText = "So come along with me, and let's work together to keep our homes clean and healthy!"
                                     default:
                                         displayText = "Click on one of the images and start your journey..."
+                                        sumiu = 0
                                     }
                                 }
+                                .opacity(sumiu)
                                 .padding()
+                                .scaleEffect(bouncing ? 0.8 : 1)
+                                .animation(.linear(duration:1).repeatForever().speed(1), value: bouncing)
+                                .onAppear(){
+                                    self.bouncing.toggle()
+                                    
+                                }
                         }
                     }
                 }

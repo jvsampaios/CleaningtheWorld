@@ -42,6 +42,11 @@ struct BeachView: View {
     @State private var showingAlert = false
 
     @State private var showNewView = false
+    
+    @State private var bouncing = false
+    
+    @State private var sumiu = 100.0
+
 
     func lixo1(proxy: GeometryProxy) -> some View {
         Image(uiImage: #imageLiteral(resourceName: "lixo6.png"))
@@ -266,6 +271,7 @@ struct BeachView: View {
                             Image("skip")
                                 .resizable()
                                 .frame(width: proxy.size.width * 0.10, height: proxy.size.width * 0.10)
+                                .opacity(sumiu)
                                 .onTapGesture {
                                     self.control += 1
                                     if(self.control >= 545){
@@ -295,11 +301,19 @@ struct BeachView: View {
                                             
                                         case 8:
                                             displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
+                                            sumiu = 0
                                             
                                         default:
                                             displayText = "Clean our beach by dragging all that trash and dropping it in the proper trash can."
+                                            sumiu = 0
                                         }
                                     }
+                                    
+                                }
+                                .scaleEffect(bouncing ? 0.8 : 1)
+                                .animation(.linear(duration:1).repeatForever().speed(1), value: bouncing)
+                                .onAppear(){
+                                    self.bouncing.toggle()
                                     
                                 }
                         }

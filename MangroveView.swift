@@ -42,6 +42,10 @@ struct MangroveView: View {
     @State private var showingAlert = false
 
     @State private var showNewView = false
+    
+    @State private var bouncing = false
+    
+    @State private var sumiu = 100.0
 
     func lixo1(proxy: GeometryProxy) -> some View {
         Image(uiImage: #imageLiteral(resourceName: "lixo12.png"))
@@ -289,8 +293,17 @@ struct MangroveView: View {
                                             
                                         default:
                                             displayText = "Thanks for listening, my little friend. Together, we can keep the mangroves clean and safe for all the creatures who live here!"
+                                            sumiu = 0
                                         
                                     }
+                                    
+                                }
+                                .opacity(sumiu)
+                                .padding()
+                                .scaleEffect(bouncing ? 0.8 : 1)
+                                .animation(.linear(duration:1).repeatForever().speed(1), value: bouncing)
+                                .onAppear(){
+                                    self.bouncing.toggle()
                                     
                                 }
                         }
