@@ -62,7 +62,7 @@ struct TownView: View {
                     .onEnded { _ in
                         
                         canSizeWidth = proxy.size.width * canProportion
-                        canSizeHeight = proxy.size.height * canProportion
+                        canSizeHeight = proxy.size.width * canProportion
                         
                         
                         if ((positionTrash1.x + canSizeWidth/2 >= canPosition.x) && (positionTrash1.y + canSizeHeight/2 >= canPosition.y) && (positionTrash1.x < canPosition.x + canSizeWidth/2) && (positionTrash1.y < canPosition.y + canSizeHeight/2)) {
@@ -96,7 +96,7 @@ struct TownView: View {
                     .onEnded { _ in
                         
                         canSizeWidth = proxy.size.width * canProportion
-                        canSizeHeight = proxy.size.height * canProportion
+                        canSizeHeight = proxy.size.width * canProportion
                         
                         
                         if ((positionTrash2.x + canSizeWidth/2 >= canPosition.x) && (positionTrash2.y + canSizeHeight/2 >= canPosition.y) && (positionTrash2.x < canPosition.x + canSizeWidth/2) && (positionTrash2.y < canPosition.y + canSizeHeight/2)) {
@@ -131,7 +131,7 @@ struct TownView: View {
                 .onEnded { _ in
                     
                     canSizeWidth = proxy.size.width * canProportion
-                    canSizeHeight = proxy.size.height * canProportion
+                    canSizeHeight = proxy.size.width * canProportion
                     
                     
                     if ((positionTrash3.x + canSizeWidth/2 >= canPosition.x) && (positionTrash3.y + canSizeHeight/2 >= canPosition.y) && (positionTrash3.x < canPosition.x + canSizeWidth/2) && (positionTrash3.y < canPosition.y + canSizeHeight/2)) {
@@ -163,7 +163,7 @@ struct TownView: View {
                     .onEnded { _ in
                         
                         canSizeWidth = proxy.size.width * canProportion
-                        canSizeHeight = proxy.size.height * canProportion
+                        canSizeHeight = proxy.size.width * canProportion
                         
                         
                         if ((positionTrash4.x + canSizeWidth/2 >= canPosition.x) && (positionTrash4.y + canSizeHeight/2 >= canPosition.y) && (positionTrash4.x < canPosition.x + canSizeWidth/2) && (positionTrash4.y < canPosition.y + canSizeHeight/2)) {
@@ -199,7 +199,7 @@ struct TownView: View {
                 .onEnded { _ in
                     
                     canSizeWidth = proxy.size.width * canProportion
-                    canSizeHeight = proxy.size.height * canProportion
+                    canSizeHeight = proxy.size.width * canProportion
                     
                     
                     if ((positionTrash5.x + canSizeWidth/2 >= canPosition.x) && (positionTrash5.y + canSizeHeight/2 >= canPosition.y) && (positionTrash5.x < canPosition.x + canSizeWidth/2) && (positionTrash5.y < canPosition.y + canSizeHeight/2)) {
@@ -302,12 +302,12 @@ struct TownView: View {
                 
                 Image(uiImage: #imageLiteral(resourceName: "paper.png"))
                     .resizable()
-                    .frame(width: proxy.size.width * canProportion, height: proxy.size.height * canProportion)
+                    .frame(width: proxy.size.width * canProportion, height: proxy.size.width * canProportion)
                     .position(x: canPosition.x, y: canPosition.y)
                 
                     .onAppear{
                         canPosition = CGPoint(
-                            x: proxy.size.width * 0.8, y: proxy.size.height * 0.55)
+                            x: proxy.size.width * 0.8, y: proxy.size.height * 0.50)
                         
                     }
                 

@@ -88,8 +88,7 @@ struct ContentView: View {
                                     }
                                 }
                                 .opacity(sumiu)
-                                .padding()
-                                .scaleEffect(bouncing ? 0.8 : 1)
+                                .padding()              .scaleEffect(bouncing ? 0.8 : 1)
                                 .animation(.linear(duration:1).repeatForever().speed(1), value: bouncing)
                                 .onAppear(){
                                     self.bouncing.toggle()
